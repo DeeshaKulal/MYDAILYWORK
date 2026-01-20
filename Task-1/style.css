@@ -1,0 +1,207 @@
+/* --- CSS Variables for Easy Theme Adjustments --- */
+:root {
+    --primary-color: #007BFF; /* A clean, professional Blue */
+    --secondary-color: #6c757d; /* Dark Grey for subtle accents */
+    --text-dark: #212529; /* Near Black text */
+    --bg-body: #e9ecef; /* Light background for the page outside the main content */
+    --bg-card: #ffffff; /* Pure white content cards */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    --border-radius-large: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Header Styling: Split layout using Flexbox --- */
+header {
+    background: var(--bg-card); /* White header background */
+    color: var(--text-dark);
+    padding: 20px 30px; 
+    border-bottom: 4px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: space-between; /* Puts name on left, nav on right */
+    align-items: center; /* Vertically centers content */
+}
+
+.header-info {
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.3em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+header p {
+    margin: 0;
+    font-size: 0.9em; 
+    color: var(--secondary-color);
+}
+
+nav {
+    /* This ensures the navigation links are grouped on the right */
+    display: flex;
+    gap: 15px; 
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 3px;
+}
+
+nav a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Layout: Two-column cards --- */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1050px;
+    margin: 40px auto 60px;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.left, .right {
+    background: var(--bg-card); /* White content background */
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.left:hover, .right:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.left {
+    flex: 1 1 300px; 
+}
+
+.right {
+    flex: 2 1 550px; 
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* --- Content Styling --- */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+ul li {
+    margin: 10px 0;
+    padding-left: 15px;
+    position: relative;
+    font-weight: 400;
+}
+
+/* Custom bullet point */
+ul li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.left p {
+    margin: 10px 0;
+}
+
+.left p b {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.left a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.left a:hover {
+    color: #0056b3; 
+    text-decoration: underline;
+}
+
+/* Vertical timeline indicator for education/project */
+.right > p {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.right p b {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+/* --- Footer Styling --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+    background: var(--bg-card);
+}
+
+/* --- Responsive Design for mobile --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+
+    .header-info {
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+    }
+
+    main {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+}
